@@ -32,4 +32,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(lists);
 	return (format_print);
-}
+} 
