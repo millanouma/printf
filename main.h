@@ -8,7 +8,7 @@
 #include <strings.h>
 
 
-int _putchar(char character);
+int _putchar(char c);
 int _printf(const char *format, ...);
 
 
