@@ -39,6 +39,15 @@ int _printf(const char *format, ...)
 								printed++;
 							}
 						}
+						else 
+						{
+							char *null_str = "(null)";
+							while (*null_str){
+								putchar(*null_str);
+								null_str++;
+								printed++;
+							}
+						}
 					}
 					break;
 				case '%':
