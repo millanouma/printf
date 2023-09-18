@@ -12,35 +12,38 @@ int _printf(const char *format, ...)
         va_list lists;
         va_start(lists, format); 
 
-    while (*format) {
-        if (*format == '%') {
+    while (*format)
+    {
+        if (*format == '%')
+       	{
             format++;  
             if (*format == '\0')
                 break; 
-
-            } else if (*format == 's') {
+		}
+              else if (*format == 's')
+	      {
                 char *str = va_arg(lists, char *);
-                while (*str != '\0'){
-                    _putchar(*str);
-					count ++;
-					str++;
-				}	
-            } else if (*format == 'c') {
-                char ch = (char)
-				va_arg(lists, int);
-				_putchar(ch);
-                return (count ++); 
-            } else {
-               putchar(*format);  
-            count++;
+                while (*str != '\0')
+		{
+                    _putchar(*str);		
+	    	    count ++;
+		    str++;
+		}	
             }
-        
-            
-        
-        format++;  
+         	else if (*format == 'c')
+	    {
+                int ch = va_arg(lists, int);
+		_putchar(ch);
+                return (count +1); 
+            }
+        	else
+	     {
+               putchar(*format);  
+               count++;
+            }
+         format++;  
     }
-
-    va_end(lists);
-    return count;
+ va_end(lists);
+ return count;
 }
 
