@@ -53,3 +53,14 @@ int _printf(const char *format, ...)
 	va_end(lists);
 	return (count);
 }
+int main()
+{
+	int x = 2;
+	char *str = "Printf project";
+	char ch = 'M';
+	
+	int characters_printed = _printf("Integer: &d, String: %s, Character: %c\n", x, str, ch);
+	printf("Total characters printed: %d\n", characters_printed);
+
+	return (0);
+}
