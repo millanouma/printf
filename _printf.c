@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	va_start(lists, format);
 
 
-	while (*format == '%')
+	while (*format)
 	{
 		if (*format == '%')
 		{
