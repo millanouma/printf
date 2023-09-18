@@ -6,11 +6,11 @@
  * Return: formated output.
 */
 
-int _printf(const char *format, ...) {
-    va_list lists;
-    va_start(lists, format);
-
-    int count = 0;  
+int _printf(const char *format, ...)
+{
+	int count = 0;
+        va_list lists;
+        va_start(lists, format); 
 
     while (*format) {
         if (*format == '%') {
@@ -43,3 +43,4 @@ int _printf(const char *format, ...) {
     va_end(lists);
     return count;
 }
+
