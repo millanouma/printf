@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				int ch = va_arg(lists, int);
+				char ch = va_arg(lists, int);
 
 				putchar(ch);
 				return (count + 1);
