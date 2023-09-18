@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printf - function that produces
  *  output according to a format.
@@ -29,7 +30,7 @@ int _printf(const char *format, ...)
 				{
 					while (*str)
 					{
-						_putchar(*str);
+						putchar(*str);
 						count++;
 						str++;
 					}
@@ -39,13 +40,13 @@ int _printf(const char *format, ...)
 			{
 				int ch = va_arg(lists, int);
 
-				_putchar(ch);
+				putchar(ch);
 				return (count + 1);
 			}
 		}
 		else
 			{
-				_putchar(*format);
+				putchar(*format);
 				count++; }
 		format++;
 	}
