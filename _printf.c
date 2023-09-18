@@ -26,15 +26,12 @@ int _printf(const char *format, ...)
 			{
 				char *str = va_arg(lists, char *);
 
-				if (*str != '\0')
-				{
-					while (*str)
-					{
-						putchar(*str);
-						count++;
-						str++;
-					}
-				}
+				int str_len = 0;
+
+				while (str[str_len] != '\0')
+					str_len++;
+				write (1, str, str_len);
+				count++;
 			}
 			else if (*format == 'c')
 			{
