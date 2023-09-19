@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		case 'c':
 			{
 				char ch = va_arg(args, int);
-				putchar(ch);
+				_putchar(ch);
 				printed++;
 			}
 			break;
@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 				if (str != NULL)
 				{
 					while (*str){
-				          putchar(*str);
+				          _putchar(*str);
 					  str++;
 					  printed++;
 			        	}
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 				{
 				        char *null_str = "(null)";
 					while (*null_str){
-					  putchar(*null_str);
+					  _putchar(*null_str);
 					  null_str++;
 					  printed++;
 					}
@@ -52,14 +52,14 @@ int _printf(const char *format, ...)
 			}
 			break;
 		case '%':
-			putchar('%');
+			_putchar('%');
 			printed++;
 			break;
 	}
 	}
 	else
 	{
-		putchar(*format);
+		_putchar(*format);
 		printed++;
 	}
 	format++;
