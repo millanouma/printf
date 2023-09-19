@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * unsigned - prints a binary number
+ * _unsigned - prints a binary number
  * @num: number of arguements
  * @printed: printed characters
  * Return: printed characters
