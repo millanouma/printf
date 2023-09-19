@@ -55,15 +55,15 @@ int _printf(const char *format, ...)
 			_putchar('%');
 			printed++;
 			break;
-	}
+	    }
 	}
 	else
-	{
+		{
 		_putchar(*format);
 		printed++;
+		}
+		format++;
 	}
-	format++;
-	}
-va_end(args);
-return (printed);
+	va_end(args);
+	return (printed);
 }
