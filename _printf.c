@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - function that produces
  *  output according to a format.
@@ -10,60 +9,38 @@
 int _printf(const char *format, ...)
 {
 	int printed = 0;
+	char *null_str = "(null)";
 
 	va_list args;
 	va_start(args, format);
 
 	while (*format)
-	{
-	  if (*format == '%' && format[1] != '\0')
-	  {
-	    format++;
-	    switch (*format)
-	    {
-		case 'c':
+		if (*format == '%' && format[1])
+		{
+			format++;
+			if (*format == 'c')
+				_putchar(va_arg(args, int));
+			else if (*format == 's')
 			{
-			  _putchar(va_arg(args, int));
-			  printed++;
-			  break;
+				char *str = va_arg(args, char *);
+				if (str)
+					while (*str)
+						_putchar(*str++);
+				else
+					while (*null_str)
+						_putchar(*null_str++);
 			}
-		case 's':
-			{
-			  char *str = va_arg(args, char *);
-			  if (str != NULL)
-			  {
-			    while (*str)
-			    {
-				_putchar(*str++);
-				printed++;
-			    }
-			  }
-			  else
-			  {
-			     char *null_str = "(null)";
-			     while (*null_str)
-			     {
-				_putchar(*null_str++);
-				printed++;
-			     }
-			  }
-			  break;
-			}
-		case '%':
-			{
-			  _putchar('%');
-			  printed++;
-			  break;
-			}
-	    }
-	  }
-	  else
-	  {
-		  _putchar(*format);
-		  printed++;
-	  }
-	  format++;
-	}
+			else if (*format == '%')
+				_putchar('%');
+			else
+				_putchar(*format);
+			printed++;
+		}
+		else
+		{
+			_putchar(*format);
+			printed++;
+		}
 	va_end(args);
-	return(printed);
+	return (printed);
 }
