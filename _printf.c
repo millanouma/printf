@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printf - function that produces
  *  output according to a format.
@@ -9,40 +10,60 @@
 int _printf(const char *format, ...)
 {
 	int printed = 0;
-	char *null_str = "(null)";
-
 	va_list args;
-	va_start(args, format);
 
+	va_start(args, format);
 	while (*format)
-       	{
-       		 if (*format == '%' && format[1])
-		 {
-            		format++;
-            		if (*format == 'c')
-                	printed += putchar(va_arg(args, int));
-            		else if (*format == 's')
-		       	{
-                		char *str = va_arg(args, char *);
-                		if (str)
-                    		while (*str)
-                        	printed += putchar(*str++);
-                		else
-                    			while (*null_str)
-                        		printed += putchar(*null_str++);
-            		}	
-		       	else if (*format == '%')
-                		printed += putchar('%');
-            		else
-                		printed += putchar(*format);
-        	}
-		 else
-		 {
-            		printed += putchar(*format);
-        	}
-        	format++;
-    	}
-    
-    va_end(args);
-    return printed;
+	{
+	   if (*format == '%')
+	  {
+	     format++;
+	     if (*format == '\0')
+	        break;
+	     switch (*format)
+	   {
+		case 'c':
+			{
+				char ch = va_arg(args, int);
+				_putchar(ch);
+				printed++;
+			}
+			break;
+		case 's':
+			{
+				char *str = va_arg(args, char *);
+				if (str != NULL)
+				{
+					while (*str){
+				          _putchar(*str);
+					  str++;
+					  printed++;
+			        	}
+				}
+				else 
+				{
+				        char *null_str = "(null)";
+					while (*null_str){
+					  _putchar(*null_str);
+					  null_str++;
+					  printed++;
+					}
+				}
+				break;
+			}
+		case '%':
+			_putchar('%');
+			printed++;
+			break;
+	}
+	}
+	else
+	{
+		_putchar(*format);
+		printed++;
+	}
+	format++;
+	}
+va_end(args);
+return (printed);
 }
