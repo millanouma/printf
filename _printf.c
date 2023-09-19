@@ -32,25 +32,14 @@ int _printf(const char *format, ...)
 		case 's':
 			{
 				char *str = va_arg(args, char *);
-				if (str != NULL)
+				while (*str != '\0')
 				{
-					while (*str){
 				          _putchar(*str);
 					  str++;
 					  printed++;
-			        	}
 				}
-				else 
-				{
-				        char *null_str = "(null)";
-					while (*null_str){
-					  _putchar(*null_str);
-					  null_str++;
-					  printed++;
-					}
-				}
-				break;
 			}
+			break;
 		case '%':
 			_putchar('%');
 			printed++;
