@@ -9,6 +9,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+int _unsigned(unsigned int num, int printed);
 int _putchar(char c);
 int print_c(va_list c);
 int print_s(va_list s);
