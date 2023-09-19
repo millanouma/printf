@@ -9,7 +9,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int printf_unsigned(unsigned int num, int printed);
+int printf_binary(unsigned int num, int printed);
 int print_c(va_list c);
 int print_s(va_list s);
 int print_i(va_list i);
